@@ -1,35 +1,36 @@
 # Genome-assembly-Pipelines
-genome-assembly-pipelines
+ProkAssembly
 Snakemake pipeline for improved microbial genome assembly
 
-Quick Usage
+**Quick Usage**
 
 snakemake --snakefile 'assembly pipeline' --core 40
 
-'assembly1' pipeline for pure reads (contamination ≤1%)
+**'PureFix assembly'** pipeline for pure reads (contamination ≤1%)
 
-'assembly2' pipeline for pure reads with minor contamination (contamination >1-≤7%)
+**'LowconFix assembly'** pipeline for pure reads with minor contamination (contamination >1-≤7%)
 
-'assembly3' pipeline for reads with high contamination and heterogeneity (multi-strain and contamination >7%)
+**'HighconFix assembly'** pipeline for reads with high contamination (uniculture and contamination >7%)
 
-'assembly4' pipeline for reads with high contamination (uniculture and contamination >7%)
+**'MultiHighconFix assembly'** pipeline for reads with high contamination and heterogeneity (multi-strain and contamination >7%)
 
-‘assembly1’, ‘assembly2’, ‘assembly3’, ‘assembly4’ are four different genome assembly pipelines developed by our group using Snakemake program. Each pipeline is standardized for a specific read category. Read categorization can be performed using 'contamination_check' pipeline which reports contamination for individual reads. Depending on the contamination level, a particular assembly pipeline is recommended for producing a high quality genome assembly.
+‘PureFix assembly’, ‘LowconFix assembly’, ‘HighconFix assembly’, ‘MultiHighconFix assembly’ are four different genome assembly pipelines developed by our group using Snakemake program. Each pipeline is standardized for a specific read category. Read categorization can be performed using 'ConCheck' pipeline which reports contamination for individual reads. Depending on the contamination level, a particular assembly pipeline is recommended for producing a high quality genome assembly.
 
 Detailed description of the pipelines:
 
-Assembly1 and Assembly2 pipelines:
+**PureFix assembly and LowconFix assembly pipelines:**
 
-Assembly1 and Assembly2 pipeline generate a draft assembly without meta and with meta option, respectively using Flye from filtered long reads. The path of the .fastq files containing the respective long reads may be provided in the config file (config.yaml).
+PureFix assembly and LowconFix assembly pipeline generate a draft assembly without meta and with meta option, respectively using Flye from filtered long reads. The path of the .fastq files containing the respective long reads may be provided in the config file (config.yaml).
 Metabat segregates the contigs of the assembly into separate bins based on their divergence.
 Subsequently, CheckM reports the lineage of the bins produced.
 A python script, “parse_completeness.py” allow the selection of the bins for any particular organism for further processing in the subsequent pipeline. Name of the desired organism can be taken from CheckM database (eg. p__Cyanobacteria) and written in the parse_completeness.py script.
 The next step involves the correction of the selected contigs with long reads using Medaka.
 Polishing of the corrected assembly using short Illumina reads (path provided in config file) will be performed by Polypolish.
 Finally, the polished assembly undergoes CheckM and Busco quality check, which reports completeness, contamination and strain heterogeneity of the final assembly.
-Assembly3 and Assembly4 pipelines
 
-The hybrid assembly pipelines Assembly3 and Assembly4, that include both short and long reads, are developed using Spades without meta and with meta option respectively.
+**HighconFix assembly and MultiHighconFix assembly pipelines:**
+
+The hybrid assembly pipelines HighconFix assembly and MultiHighconFix assembly, that include both short and long reads, are developed using Spades with meta and without meta option respectively. 
 Binning of the draft hybrid assembly is performed with Metabat to separate contamination from the original genome.
 The pipelines are further extended to include CheckM analysis, which assesses completeness, contamination, strain heterogeneity, and lineage specificity of different bins produced.
 The bin containing the genome of interest will be screened using a python script “parse_completeness.py”. Name of the desired organism can be taken from CheckM database (eg. p__Cyanobacteria) and written in the parse_completeness.py script.
