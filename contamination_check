@@ -1,0 +1,40 @@
+import os
+
+# Configurations
+configfile: "config.yaml"
+
+# Define the rule to index input files
+rule all:
+    input:
+        "contamination_category/checkm_post_flye/checkm_output/completeness.tsv"
+
+# Step 1: Flye Assembly
+rule flye_assembly:
+    input:
+        reads=config["filtered_long_reads"]
+    output:
+        assembly_dir=directory("contamination_category/flye"),
+    params:
+        threads=config["threads"]
+    shell:
+        """
+        flye --nano-raw {input.reads} --out-dir {output.assembly_dir}  --threads {params.threads}
+        """
+
+# Step 2: CheckM contamination assessment
+rule checkm_assessment:
+    input:
+        assembly_dir="contamination_category/flye"
+    output:
+        checkm_dir=directory("contamination_category/checkm_post_flye/checkm_output"),
+        completeness="contamination_category/checkm_post_flye/checkm_output/completeness.tsv"
+    params:
+        threads=config["threads"],
+        lineage_wf_dir="contamination_category/checkm_post_flye/checkm_lineage_wf"
+    shell:
+        """
+        mkdir -p {output.checkm_dir}
+        checkm lineage_wf -x fasta --tab_table -t {params.threads} {input.assembly_dir} {params.lineage_wf_dir}
+        checkm qa {params.lineage_wf_dir}/lineage.ms {params.lineage_wf_dir} > {output.completeness}
+        """
+

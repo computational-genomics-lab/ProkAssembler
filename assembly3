@@ -1,0 +1,90 @@
+import os
+## Microbial genome assembly pipeline for "Reads with high contamination"
+# Configurations
+configfile: "config.yaml"
+
+# Define the rule to index input files
+rule all:
+    input:
+        "results/busco_post_spades/busco_done"
+# Step 1: SPAdes Hybrid Assembly
+rule spades_hybrid_assembly:
+    input:
+        long_reads=config["filtered_long_reads"],
+        short_reads1=config["filtered_short_reads"]["R1"],
+        short_reads2=config["filtered_short_reads"]["R2"],
+    output:
+        contigs="results/spades/scaffolds.fasta"
+    params:
+        threads=config["threads"],
+    shell:
+        """
+        spades.py --nanopore {input.long_reads} -1 {input.short_reads1} -2 {input.short_reads2} \
+        -o results/spades --threads {params.threads} 
+        """
+
+# Step 2: MetaBAT Binning
+rule metabat_binning:
+    input:
+        contigs="results/spades/scaffolds.fasta"
+    output:
+        bins_dir=directory("results/metabat/bins")
+    params:
+        threads=config["threads"]
+    shell:
+        """
+        mkdir -p {output.bins_dir}
+        metabat2 -i {input.contigs} -o {output.bins_dir}/bin -t {params.threads}
+        """
+
+# Step 3: CheckM Quality Assessment
+rule checkm_assessment:
+    input:
+        bins_dir="results/metabat/bins"
+    output:
+        checkm_dir=directory("results/checkm_post_spades/checkm_output"),
+        completeness="results/checkm_post_spades/checkm_output/completeness.tsv"
+    params:
+        threads=config["threads"],
+        lineage_wf_dir="results/checkm_post_spades/checkm_lineage_wf"
+    shell:
+        """
+        mkdir -p {output.checkm_dir}
+        checkm lineage_wf -x fa --tab_table -t {params.threads} {input.bins_dir} {params.lineage_wf_dir}
+        checkm qa {params.lineage_wf_dir}/lineage.ms {params.lineage_wf_dir} > {output.completeness}
+        """
+# Step 4: Parse completeness.tsv to identify bins of the desired organism. Mention the the name of the organism in parse_completeness.py script
+rule parse_completeness:
+    input:
+        completeness="results/checkm_post_spades/checkm_output/completeness.tsv"
+    output:
+        desired_bins="results/checkm_post_spades/desired_bins.txt"
+    shell:
+        "python parse_completeness.py {input.completeness} {output.desired_bins}"
+# Step 5: BUSCO Assessment on Cyanobacterial Bins
+rule busco_assessment:
+    input:
+        bins="results/checkm_post_spades/desired_bins.txt"
+    output:
+        touch("results/busco_post_spades/busco_done")
+    params:
+        threads=config["threads"],
+        lineage=config["busco_lineage"]
+    run:
+        # Read the list of bins
+        with open(input.bins) as f:
+            bins = [line.strip() for line in f]
+
+        for bin_path in bins:
+            # Define output directory for Medaka
+            output_dir = bin_path.replace("results/metabat/bins", "results/busco_post_spades")
+            output_dir = output_dir.replace(".fa", "")
+            os.makedirs(output_dir, exist_ok=True)
+
+            # Run Busco on the desired bin
+            shell("""
+                 busco -i {bin_path} -o {output_dir} -l {params.lineage} -m genome -c {params.threads} -f
+            """)
+
+
+
