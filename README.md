@@ -4,7 +4,7 @@ Snakemake pipeline for improved microbial genome assembly
 
 **Quick Usage**
 
-snakemake --snakefile 'assembly pipeline' --core 40
+snakemake --snakefile 'Master_pipeline' --core 40
 
 **'Pure assembly'** pipeline for pure reads (contamination ≤1%)
 
@@ -14,7 +14,7 @@ snakemake --snakefile 'assembly pipeline' --core 40
 
 **'MultiHighcon assembly'** pipeline for reads with high contamination and heterogeneity (multi-strain and contamination >7%)
 
-‘Pure assembly’, ‘Lowcon assembly’, ‘Highcon assembly’, ‘MultiHighcon assembly’ are four different genome assembly pipelines developed by our group using Snakemake program. Each pipeline is standardized for a specific read category. Read categorization can be performed using 'ConCheck' pipeline which reports contamination for individual reads. Depending on the contamination level, a particular assembly pipeline is recommended for producing a high quality genome assembly.
+‘Pure assembly’, ‘Lowcon assembly’, ‘Highcon assembly’, ‘MultiHighcon assembly’ are four different genome assembly pipelines developed by our group using Snakemake program. Each pipeline is standardized for a specific read category. Read categorization can be performed using 'Master_pipeline' which detects contamination and heterogeneity for individual readset. Depending on the contamination and heterogeneity value, it will automatically execute a particular downstream assembly pipeline for producing a high quality genome assembly.
 
 Detailed description of the pipelines:
 
