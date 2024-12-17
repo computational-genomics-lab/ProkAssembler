@@ -1,7 +1,7 @@
 # config.yaml
 
 #Provide the path of your working directory. Example path is given below.
-workdir: "/home/sutripa/Benchmarking/assembly_pipeline"
+#workdir: "/home/sutripa/Benchmarking/assembly_pipeline"
 #Provide the path of the filtered long reads. Example path is given below  
 filtered_long_reads: "/home/sutripa/Benchmarking/Inhouse_data/268/highQuality-reads.fastq"
 #Mention number of threads to use
