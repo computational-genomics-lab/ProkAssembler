@@ -33,6 +33,10 @@ snakemake --snakefile 'Master_pipeline' --core 40
 
 ‘Nocon assembly’, ‘Lowcon assembly’, ‘Highcon assembly’, ‘HighconHetero assembly’ are four different genome assembly pipelines developed by our group using Snakemake program. Each pipeline is standardized for a specific read category. Read categorization can be performed using 'Master_pipeline' which detects contamination and heterogeneity for individual readset. Depending on the contamination and heterogeneity value, it will automatically execute a particular downstream assembly pipeline for producing a high quality genome assembly.
 
+# Configuration file
+A config.yaml file has been included in the ProkAssembly directory. It has the following format :
+
+
 # Detailed description of the pipelines:
 
 **Nocon assembly and Lowcon assembly pipelines:**
