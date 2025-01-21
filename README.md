@@ -3,9 +3,10 @@ ProkAssembly
 Snakemake pipeline for improved microbial genome assembly
 
 For latest version
-git clone https://github.com/computational-genomics-lab/galEupy.git
-cd galEupy
-pip install .
+
+git clone https://github.com/computational-genomics-lab/ProkAssembly.git
+cd ProkAssembly
+
 
 **Quick Usage**
 
