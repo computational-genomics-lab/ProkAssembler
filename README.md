@@ -8,7 +8,7 @@ git clone https://github.com/computational-genomics-lab/ProkAssembly.git
 
 ```
 # Requirements
-**Quick Usage**
+# Quick Usage
 
 snakemake --snakefile 'Master_pipeline' --core 40
 
@@ -22,7 +22,7 @@ snakemake --snakefile 'Master_pipeline' --core 40
 
 ‘Pure assembly’, ‘Lowcon assembly’, ‘Highcon assembly’, ‘MultiHighcon assembly’ are four different genome assembly pipelines developed by our group using Snakemake program. Each pipeline is standardized for a specific read category. Read categorization can be performed using 'Master_pipeline' which detects contamination and heterogeneity for individual readset. Depending on the contamination and heterogeneity value, it will automatically execute a particular downstream assembly pipeline for producing a high quality genome assembly.
 
-**Detailed description of the pipelines:**
+# Detailed description of the pipelines:
 
 **Pure assembly and Lowcon assembly pipelines:**
 
