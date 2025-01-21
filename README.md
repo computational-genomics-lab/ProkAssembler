@@ -35,8 +35,17 @@ snakemake --snakefile 'Master_pipeline' --core 40
 
 # Configuration file
 A config.yaml file has been included in the ProkAssembly directory. It has the following format :
-
-
+```batch
+filtered_long_reads: "/home/sutripa/Benchmarking/Inhouse_data/268/highQuality-reads.fastq"
+#Mention number of threads to use
+threads: 40
+#Provide the path of the filtered paired end short reads. Example path is given below for R1 and R2
+filtered_short_reads:
+  R1: "/home/sutripa/Benchmarking/Inhouse_data/268/268I_R1.fastq"
+  R2: "/home/sutripa/Benchmarking/Inhouse_data/268/268I_R2.fastq"
+#Give the organism name from Busco database for genome quality assesment, Example organism is given below.    
+busco_lineage: cyanobacteria_odb10
+```
 # Detailed description of the pipelines:
 
 **Nocon assembly and Lowcon assembly pipelines:**
