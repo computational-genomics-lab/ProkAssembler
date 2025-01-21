@@ -81,12 +81,12 @@ rule run_downstream_pipeline:
 
         # Determine the pipeline based on contamination and heterogeneity
         if contamination <= 1:
-            selected_pipeline = "Pure_assembly"
+            selected_pipeline = "Nocon_assembly"
         elif 1 < contamination <= 7:
             selected_pipeline = "Lowcon_assembly"
         elif contamination > 7:
             if heterogeneity > 2:
-                selected_pipeline = "MultiHighcon_assembly"
+                selected_pipeline = "HighconHetero_assembly"
             else:
                 selected_pipeline = "Highcon_assembly"
 
