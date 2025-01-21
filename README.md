@@ -3,10 +3,10 @@ ProkAssembly
 Snakemake pipeline for improved microbial genome assembly
 
 For latest version
-
+```batch
 git clone https://github.com/computational-genomics-lab/ProkAssembly.git
 cd ProkAssembly
-
+```
 
 **Quick Usage**
 
