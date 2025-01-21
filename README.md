@@ -8,6 +8,17 @@ git clone https://github.com/computational-genomics-lab/ProkAssembly.git
 
 ```
 # Requirements
+To run the pipeline Software/package/tool required to install:
+
+- Python 3
+- Snakemake
+- Flye v.2.9.2
+- Metabat v.2.12.1
+- Medaka v.1.7.3
+- Polypolish v.3
+- Spades v3.13.1
+- CheckM v.1.2.2
+- Busco v.5.4.6
 # Quick Usage
 
 snakemake --snakefile 'Master_pipeline' --core 40
@@ -41,6 +52,5 @@ Binning of the draft hybrid assembly is performed with Metabat to separate conta
 The pipelines are further extended to include CheckM analysis, which assesses completeness, contamination, strain heterogeneity, and lineage specificity of different bins produced.
 The bin containing the genome of interest will be screened using a python script “parse_completeness.py”. Name of the desired organism can be taken from CheckM database (eg. p__Cyanobacteria) and written in the parse_completeness.py script.
 Busco assessment of the genome assembly in the selected bin will be reported.
-Software/package/tool required to install
 
-1.Python 3 2.Snakemake 3.Flye v.2.9.2-b1786 4.Metabat v.2.12.1 5.Medaka v.1.7.3 6.Polypolish V.3 7.Spades v3.13.1 8.CheckM v.1.2.2 9.Busco v.5.4.6
+
