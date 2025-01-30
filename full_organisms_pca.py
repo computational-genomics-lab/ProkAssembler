@@ -56,7 +56,6 @@ for key, value in data.items():
     print(f"Length of '{key}': {len(value)}")
 
 # Create a DataFrame
-# Create a DataFrame
 df = pd.DataFrame(data)
 
 
@@ -203,46 +202,26 @@ custom_colors = {
     'cat_4_Assembly_2':'red',
     'cat_4_Assembly_2_meta':'blue',
 
-    #'cat_1_Assembly_1':'red',
-    #'cat_1_Assembly_1_meta':'grey',
-    #'cat_1_Assembly_2':'grey',
-    #'cat_1_Assembly_2_meta':'grey',
-    #'cat_2_Assembly_1':'grey',
-    #'cat_2_Assembly_1_meta':'red',
-    #'cat_2_Assembly_2':'blue',
-    #'cat_2_Assembly_2_meta':'blue',
-    #'cat_4_Assembly_1':'grey',
-    #'cat_4_Assembly_1_meta':'grey',
-    #'cat_4_Assembly_2':'red',
-    #'cat_4_Assembly_2_meta':'blue',
-}
-
-# Create a color list based on the Data column
-#colors = [custom_colors[data] for data in df['Data']]
+   }
 
 # Creating the scatter plot with custom colors for organisms
 fig = px.scatter(components, x=0, y=1, color=df['Data'], color_discrete_map=custom_colors,
                  symbol=df['Data'], symbol_map=custom_symbols,
                  title='PCA Visualization of Organisms')
 
-
+#Scale for full plot
 fig.update_xaxes(range=[-150, 600]), #tickvals=[-80, -50, -20])
 fig.update_yaxes(range=[-30, 130])
 
 
 # Update legend title and position
-# fig.update_traces(showlegend=True)
-# fig.update_layout(legend_title_text='Organisms', legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='right', x=1))
-
-# Increase the size of the figure
-#fig.update_layout(width=1000, height=1000)
-# Update legend title and position
 fig.update_traces(showlegend=False)
 
-#fig.update_xaxes(range=[-69, -25]), #tickvals=[-60, -50, -20])
-#fig.update_yaxes(range=[-15, -5])
+#Scale for zoomed plot
+fig.update_xaxes(range=[-69, -25]), 
+fig.update_yaxes(range=[-15, -5])
 
 
 # Save the plot
-fig.write_image("pls0.pdf")
+fig.write_image("pca_plot.pdf")
 
