@@ -21,7 +21,7 @@ To run the pipeline Software/package/tool required to install:
 - Busco v.5.4.6
 
   # Test dataset
-A test dataset containing a pair of ONT and Illumina sequencing data  is available in the repository  See the instructions therein on how to download the dataset and run the ont-assembly-snake and [score-assemblies](https://github.com/pmenzel/score-assemblies) workflows.
+A test dataset containing a pair of ONT and Illumina sequencing data  is available in the repository . 
 
   # Configuration file
 A config.yaml file has been included in the ProkAssembly directory. It has the following format :
