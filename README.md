@@ -19,6 +19,23 @@ To run the pipeline Software/package/tool required to install:
 - Spades v3.13.1
 - CheckM v.1.2.2
 - Busco v.5.4.6
+
+  # Test dataset
+A test dataset containing a pair of ONT and Illumina sequencing data  is available in the repository  See the instructions therein on how to download the dataset and run the ont-assembly-snake and [score-assemblies](https://github.com/pmenzel/score-assemblies) workflows.
+
+  # Configuration file
+A config.yaml file has been included in the ProkAssembly directory. It has the following format :
+```batch
+filtered_long_reads: "Path to the file"
+#Mention number of threads to use
+threads: 40
+#Provide the path of the filtered paired end short reads. Example path is given below for R1 and R2
+filtered_short_reads:
+  R1: "Path to the file"
+  R2: "Path to the file"
+#Give the organism name from Busco database for genome quality assesment, Example organism is given below.    
+busco_lineage: cyanobacteria_odb10
+```
 # Quick Usage
 ```batch
 snakemake --snakefile 'Master_pipeline' --core 40
@@ -35,19 +52,7 @@ snakemake --snakefile 'Master_pipeline' --core 40
 
 ![Flowchart of the Process](https://github.com/computational-genomics-lab/ProkAssembly/blob/main/fig1a.jpg?raw=true)
 
-# Configuration file
-A config.yaml file has been included in the ProkAssembly directory. It has the following format :
-```batch
-filtered_long_reads: "Path to the file"
-#Mention number of threads to use
-threads: 40
-#Provide the path of the filtered paired end short reads. Example path is given below for R1 and R2
-filtered_short_reads:
-  R1: "Path to the file"
-  R2: "Path to the file"
-#Give the organism name from Busco database for genome quality assesment, Example organism is given below.    
-busco_lineage: cyanobacteria_odb10
-```
+
 # Detailed description of the pipelines:
 
 **Nocon assembly and Lowcon assembly pipelines:**
