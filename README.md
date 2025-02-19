@@ -21,7 +21,7 @@ To run the pipeline Software/package/tool required to install:
 - Busco v.5.4.6
 
   # Test dataset
-A test dataset containing a pair of ONT and Illumina sequencing data  is available in the repository 10.5281/zenodo.14869645. 
+A test dataset containing a pair of ONT and Illumina sequencing data  is available in the repository https://doi.org/10.5281/zenodo.14869645. 
 
   # Configuration file
 A config.yaml file has been included in the ProkAssembly directory. It has the following format :
