@@ -2,13 +2,15 @@
 
 #Provide the path of your working directory. Example path is given below.
 #workdir: "/home/sutripa/Benchmarking/assembly_pipeline"
-#Provide the path of the filtered long reads. Example path is given below  
-#filtered_long_reads: "/home/sutripa/Benchmarking/Inhouse_data/283/highQuality-reads.fastq"
+#Provide the path of the filtered long reads.
+#filtered_long_reads: "Path to the file"
+#Example path : "/home/sutripa/Benchmarking/Inhouse_data/283/highQuality-reads.fastq"
 #Mention number of threads to use
 #threads: 40
-#Provide the path of the filtered paired end short reads. Example path is given below for R1 and R2
+#Provide the path of the filtered paired end short reads. 
 #filtered_short_reads:
-#R1: "/home/sutripa/Benchmarking/Inhouse_data/283/283I_R1.fastq"
-#R2: "/home/sutripa/Benchmarking/Inhouse_data/283/283I_R2.fastq"
+#R1: "Path to the file"
+#R2: "Path to the file"
+# Example path :"/home/sutripa/Benchmarking/Inhouse_data/283/283I_R1.fastq", "/home/sutripa/Benchmarking/Inhouse_data/283/283I_R2.fastq"
 #Give the organism name from Busco database for genome quality assesment, Example organism is given below.    
 #busco_lineage: cyanobacteria_odb10
