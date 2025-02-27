@@ -9,8 +9,8 @@ filtered_long_reads: "Path to the file"
 threads: 40
 #Provide the path of the filtered paired end short reads. 
 filtered_short_reads:
-R1: "Path to the file"
-R2: "Path to the file"
+  R1: "Path to the file"
+  R2: "Path to the file"
 # Example path :"/home/sutripa/Benchmarking/Inhouse_data/283/283I_R1.fastq", "/home/sutripa/Benchmarking/Inhouse_data/283/283I_R2.fastq"
 #Give the desired organism dataset from Busco database for genome quality assesment.    
 busco_lineage: "Preferred busco dataset"
