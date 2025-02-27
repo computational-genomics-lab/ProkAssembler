@@ -26,19 +26,25 @@ A test dataset containing a pair of ONT and Illumina sequencing data  is availab
   # Configuration file
 A config.yaml file has been included in the ProkAssembly directory. It has the following format :
 ```batch
+#Provide the path of your working directory. Example path is given below.
+#workdir: "/home/sutripa/Benchmarking/assembly_pipeline"
+#Provide the path of the filtered long reads.
 filtered_long_reads: "Path to the file"
+#Example path : "/home/sutripa/Benchmarking/Inhouse_data/283/highQuality-reads.fastq"
 #Mention number of threads to use
 threads: 40
-#Provide the path of the filtered paired end short reads. Example path is given below for R1 and R2
+#Provide the path of the filtered paired end short reads. 
 filtered_short_reads:
-  R1: "Path to the file"
-  R2: "Path to the file"
-#Give the organism name from Busco database for genome quality assesment, Example organism is given below.    
-busco_lineage: cyanobacteria_odb10
+R1: "Path to the file"
+R2: "Path to the file"
+# Example path :"/home/sutripa/Benchmarking/Inhouse_data/283/283I_R1.fastq", "/home/sutripa/Benchmarking/Inhouse_data/283/283I_R2.fastq"
+#Give the desired organism dataset from Busco database for genome quality assesment.    
+busco_lineage: Preferred busco dataset
+#Example dataset : cyanobacteria_odb10
 ```
 # Quick Usage
 ```batch
-snakemake --snakefile 'Master_pipeline' --core 40
+snakemake --snakefile Master_pipeline --core 40
 ```
 **'Nocon assembly'** pipeline for pure reads (contamination ≤1%)
 
