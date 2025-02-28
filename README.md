@@ -31,8 +31,8 @@ cat sample1_R1.fastq sample2_R1.fastq ... > merged_sample_R1.fastq
 cat sample1_R2.fastq sample2_R2.fastq ... > merged_sample_R2.fastq
 
 #Prepare a configuration (config.yaml) file as given.
-# Run workflow
 
+# Run workflow
 snakemake --snakefile Master_pipeline --core 40
 ``` 
 
