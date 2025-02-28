@@ -5,7 +5,7 @@ Snakemake pipeline for improved microbial genome assembly
 *For latest version*
 ```batch
 git clone https://github.com/computational-genomics-lab/ProkAssembly.git
-
+cd ProkAssembly
 ```
 # Requirements
 To run the pipeline the following Software/package/tool are the pre-requisites:
