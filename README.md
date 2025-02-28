@@ -8,7 +8,7 @@ git clone https://github.com/computational-genomics-lab/ProkAssembly.git
 
 ```
 # Requirements
-To run the pipeline Software/package/tool required to install:
+To run the pipeline the following Software/package/tool are the pre-requisites:
 
 - Python 3
 - Snakemake
@@ -27,20 +27,31 @@ A test dataset containing a pair of ONT and Illumina sequencing data  is availab
 A config.yaml file has been included in the ProkAssembly directory. It has the following format :
 ```batch
 #Provide the path of your working directory. Example path is given below.
-#workdir: "/home/sutripa/Benchmarking/assembly_pipeline"
+# un comment workdir and put proper values in the path. In case, the workdir is not provided
+# the script will start from the github base directory
+#workdir: "/home/[PATH_TO_ASSEMBLY_WORKFLOW]/assembly_pipeline"
+
 #Provide the path of the filtered long reads.
-filtered_long_reads: "Path to the file"
-#Example path : "/home/sutripa/Benchmarking/Inhouse_data/283/highQuality-reads.fastq"
+# Note: In case multiple fastq files are there, concatenate them to make a single file
+#Example path : "/home/[PATH]/highQuality-reads.fastq"
+filtered_long_reads: "/[COMPLETE_PATH_TO_THE_FILE]"
+
+#Provide the path of the filtered paired end short reads.
+#Example:
+#R1: "/home/XXX/283R1.fastq"
+#R2: "/home/xxx/283R2.fastq"
+filtered_short_reads:
+R1: "/[COMPLETE_PATH]"
+R2: "/[COMPLETE_PATH]"
+
 #Mention number of threads to use
 threads: 40
-#Provide the path of the filtered paired end short reads. 
-filtered_short_reads:
-R1: "Path to the file"
-R2: "Path to the file"
-# Example path :"/home/sutripa/Benchmarking/Inhouse_data/283/283I_R1.fastq", "/home/sutripa/Benchmarking/Inhouse_data/283/283I_R2.fastq"
-#Give the desired organism dataset from Busco database for genome quality assesment.    
+
+#Give the desired organism dataset from Busco database for genome quality assesment.
+#Example: One can choose from the
+#busco_lineage : cyanobacteria_odb10    
 busco_lineage: "Preferred busco dataset"
-#Example dataset : cyanobacteria_odb10
+
 ```
 # Quick Usage
 ```batch
@@ -63,9 +74,9 @@ snakemake --snakefile Master_pipeline --core 40
 
 **Nocon assembly and Lowcon assembly pipelines:**
 
-Nocon assembly and Lowcon assembly pipeline generate a draft assembly without meta and with meta option, respectively using Flye from filtered long reads. The path of the .fastq files containing the respective long reads may be provided in the config file (config.yaml).
+Nocon assembly and Lowcon assembly pipeline generate a draft assembly without and with meta option respectively using Flye from filtered long reads. The path of the .fastq files containing the respective long reads may be provided in the config file (config.yaml).
 Metabat segregates the contigs of the assembly into separate bins based on their divergence.
-Subsequently, CheckM reports the lineage of the bins produced.
+Subsequently, CheckM reports the lineages of the bins produced.
 A python script, “parse_completeness.py” allow the selection of the bins for any particular organism for further processing in the subsequent pipeline. Name of the desired organism can be taken from CheckM database (eg. p__Cyanobacteria) and written in the parse_completeness.py script.
 The next step involves the correction of the selected contigs with long reads using Medaka.
 Polishing of the corrected assembly using short Illumina reads (path provided in config file) will be performed by Polypolish.
@@ -73,7 +84,7 @@ Finally, the polished assembly undergoes CheckM and Busco quality check, which r
 
 **Highcon assembly and HighconHetero assembly pipelines:**
 
-The hybrid assembly pipelines Highcon assembly and HighconHetero assembly, that include both short and long reads, are developed using Spades with meta and without meta option respectively. 
+The hybrid assembly pipelines Highcon assembly and HighconHetero assembly, that include both short and long reads, are developed using Spades with and without meta option respectively. 
 Binning of the draft hybrid assembly is performed with Metabat to separate contamination from the original genome.
 The pipelines are further extended to include CheckM analysis, which assesses completeness, contamination, strain heterogeneity, and lineage specificity of different bins produced.
 The bin containing the genome of interest will be screened using a python script “parse_completeness.py”. Name of the desired organism can be taken from CheckM database (eg. p__Cyanobacteria) and written in the parse_completeness.py script.
