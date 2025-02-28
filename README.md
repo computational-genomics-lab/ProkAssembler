@@ -30,14 +30,10 @@ cat sample1.fastq sample2.fastq ... > merged_sample.fastq
 cat sample1_R1.fastq sample2_R1.fastq ... > merged_sample_R1.fastq
 cat sample1_R2.fastq sample2_R2.fastq ... > merged_sample_R2.fastq
 
-#Prepare a config file as given below.
-# Run workflow
-snakemake --snakefile Master_pipeline --core 40
+#Prepare a configuration (config.yaml) file as given.
 ``` 
 
-  # Test dataset
-A test dataset containing a pair of ONT and Illumina sequencing data  is available in the repository https://doi.org/10.5281/zenodo.14869645. 
-
+  
   # Configuration file
 A config.yaml file has been included in the ProkAssembly directory. It has the following format :
 ```batch
@@ -68,6 +64,9 @@ threads: 40
 busco_lineage: "Preferred busco dataset"
 
 ```
+# Test dataset
+A test dataset containing a pair of ONT and Illumina sequencing data  is available in the repository https://doi.org/10.5281/zenodo.14869645. 
+
 # Quick Usage
 ```batch
 snakemake --snakefile Master_pipeline --core 40
