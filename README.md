@@ -16,6 +16,7 @@ To run the pipeline the following Software/package/tool are the pre-requisites:
 - Busco v.5.4.6
   
 # Quick Start
+
 ```batch
 git clone https://github.com/computational-genomics-lab/ProkAssembly.git
 cd ProkAssembly
@@ -32,7 +33,7 @@ cat sample1_R2.fastq sample2_R2.fastq ... > merged_sample_R2.fastq
 #Prepare a config file as given below.
 # Run workflow
 snakemake --snakefile Master_pipeline --core 40
-``` batch  
+``` 
 
   # Test dataset
 A test dataset containing a pair of ONT and Illumina sequencing data  is available in the repository https://doi.org/10.5281/zenodo.14869645. 
