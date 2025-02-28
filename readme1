@@ -1,4 +1,32 @@
-#ProkAssembly
+# Genome-assembly-Pipelines
+ProkAssembly
 Snakemake pipeline for improved microbial genome assembly.
-#Quick Start
 
+# Requirements
+To run the pipeline the following Software/package/tool are the pre-requisites:
+
+- Python 3
+- Snakemake
+- Flye v.2.9.2
+- Metabat v.2.12.1
+- Medaka v.1.7.3
+- Polypolish v.3
+- Spades v3.13.1
+- CheckM v.1.2.2
+- Busco v.5.4.6
+
+#Quick Start
+```batch
+git clone https://github.com/computational-genomics-lab/ProkAssembly.git
+cd ProkAssembly
+
+# Prepare Long reads, one file per sample. 
+#If multiple samples:
+cat sample1.fastq sample2.fastq ... > merged_sample.fastq
+
+# Prepare Short reads, one pair of file per sample. 
+#If multiple samples:
+cat sample1_R1.fastq sample2_R1.fastq ... > merged_sample_R1.fastq
+cat sample1_R2.fastq sample2_R2.fastq ... > merged_sample_R2.fastq
+
+```
