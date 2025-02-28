@@ -67,10 +67,11 @@ busco_lineage: "Preferred busco dataset"
 # Test dataset
 A test dataset containing a pair of ONT and Illumina sequencing data  is available in the repository https://doi.org/10.5281/zenodo.14869645. 
 
-# Quick Usage
+# Run workflow
 ```batch
 snakemake --snakefile Master_pipeline --core 40
 ```
+# Included Programs
 **'Nocon assembly'** pipeline for pure reads (contamination ≤1%)
 
 **'Lowcon assembly'** pipeline for pure reads with minor contamination (contamination >1-≤7%)
