@@ -48,7 +48,7 @@ R2: "/[COMPLETE_PATH]"
 threads: 40
 
 #Give the desired organism dataset from Busco database for genome quality assesment.
-#Example: One can choose from the
+#Example: One can choose from the commandline `busco --list-datasets`
 #busco_lineage : cyanobacteria_odb10    
 busco_lineage: "Preferred busco dataset"
 
