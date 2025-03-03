@@ -30,11 +30,9 @@ cat sample1.fastq sample2.fastq ... > merged_sample.fastq
 cat sample1_R1.fastq sample2_R1.fastq ... > merged_sample_R1.fastq
 cat sample1_R2.fastq sample2_R2.fastq ... > merged_sample_R2.fastq
 
-# Locate "polypolish_insert_filter.py" path in the installed polypolish folder to provide in the config file:
-locate polypolish_insert_filter.py
-
-# Locate "polypolish" executable file in the installed polypolish folder to provide in the config file:
-whereis polypolish 
+# Locate "polypolish_insert_filter.py" and "polypolish" path in the installed polypolish folder to provide in the config file:
+Example: find [/home/XXX/polypolish] -name "polypolish_insert_filter.py" -o -name "polypolish"
+find [COMPLETE_PATH_TO_THE_FOLDER] -name "polypolish_insert_filter.py" -o -name "polypolish"
 
 #Prepare a configuration (config.yaml) file as given.
 
@@ -53,7 +51,7 @@ A config.yaml file has been included in the ProkAssembly directory. It has the f
 
 #Provide the path of the filtered long reads.
 # Note: In case multiple fastq files are there, concatenate them to make a single file
-#Example path : "/home/[PATH]/highQuality-reads.fastq"
+#Example path : "/home/XXX/highQuality-reads.fastq"
 filtered_long_reads: "/[COMPLETE_PATH_TO_THE_FILE]"
 
 #Provide the path of the filtered paired end short reads.
