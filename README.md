@@ -30,6 +30,12 @@ cat sample1.fastq sample2.fastq ... > merged_sample.fastq
 cat sample1_R1.fastq sample2_R1.fastq ... > merged_sample_R1.fastq
 cat sample1_R2.fastq sample2_R2.fastq ... > merged_sample_R2.fastq
 
+# Locate "polypolish_insert_filter.py" path in the installed polypolish folder to provide in the config file:
+locate polypolish_insert_filter.py
+
+# Locate "polypolish" executable file in the installed polypolish folder to provide in the config file:
+whereis polypolish 
+
 #Prepare a configuration (config.yaml) file as given.
 
 # Run workflow
