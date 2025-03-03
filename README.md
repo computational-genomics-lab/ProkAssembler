@@ -62,11 +62,11 @@ filtered_short_reads:
 R1: "/[COMPLETE_PATH]"
 R2: "/[COMPLETE_PATH]"
 
-#Provide the path of the polypolish_insert_filter.py for filter alignments. Example path is given below.
+#Provide the path of the "polypolish_insert_filter.py" for filter alignments. Example path is given below.
 #Example path: "/home/[PATH]/polypolish_insert_filter.py"
 Polypolish_filter_script: "/[COMPLETE_PATH_TO_THE_FILE]"
 
-#Provide the path of the polypolish executable file. Example path is given below.
+#Provide the path of the "polypolish" executable file. Example path is given below.
 #Example path: "/home/[PATH]/polypolish/"
 PolyPolish_main: "[COMPLETE_PATH_TO_THE_FILE]"
 
