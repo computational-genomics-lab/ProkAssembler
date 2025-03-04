@@ -6,7 +6,7 @@ Snakemake pipeline for improved microbial genome assembly
 To run the pipeline the following Software/package/tool are the pre-requisites:
 
 - Python 3
-- Snakemake 6.15.1
+- Snakemake 8.29.0
 - Flye v.2.9.2
 - Metabat v.2.12.1
 - Medaka v.1.7.3
