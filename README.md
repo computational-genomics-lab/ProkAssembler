@@ -14,6 +14,10 @@ To run the pipeline the following Software/package/tool are the pre-requisites:
 - Spades v3.13.1
 - CheckM v.1.2.2
 - Busco v.5.4.6
+
+  NOTE: Make sure polypolish and polypolish_insert_filter.py is installed and is in your $PATH variable
+  Follow https://github.com/rrwick/Polypolish/wiki/Installation for installation of polypolish
+  Alternatively copy polypolish and polypolish_insert_filter.py into your $PATH directory
   
 # Quick Start
 
