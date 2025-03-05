@@ -94,8 +94,6 @@ rule polypolish:
         filtered_reads_r1=config["filtered_short_reads"]["R1"],
         filtered_reads_r2=config["filtered_short_reads"]["R2"],
         bins="results/checkm_post_flye/desired_bins.txt",
-        script=config["Polypolish_filter_script"],
-        polish=config["PolyPolish_main"]
     output:
         touch("results/polypolish/polypolish_done")
     params:
@@ -131,11 +129,11 @@ rule polypolish:
                 bwa mem -t {params.threads} {consensus_fasta} {input.filtered_reads_r2} > {sam2}
 
                 # Filter alignments
-                {input.script} --in1 {sam1} --in2 {sam2} --out1 {filter_sam1} --out2 {filter_sam2}
+                polypolish_insert_filter.py --in1 {sam1} --in2 {sam2} --out1 {filter_sam1} --out2 {filter_sam2}
  
 
                 # Run PolyPolish
-                {input.polish} {consensus_fasta} {filter_sam1} {filter_sam2} > {polished_fasta}
+                polypolish {consensus_fasta} {filter_sam1} {filter_sam2} > {polished_fasta}
             """)
 # Step 7: CheckM Quality Assessment on PolyPolish Corrected Bins
 rule checkm_post_polish:
