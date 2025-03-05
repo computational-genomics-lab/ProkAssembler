@@ -36,12 +36,11 @@ find [COMPLETE_PATH_TO_THE_FOLDER] -name "polypolish_insert_filter.py" -o -name 
 
 #Prepare a configuration (config.yaml) file as given.
 
-# Run workflow
-snakemake --snakefile Master_pipeline --core 40
 ``` 
 
   
-  # Configuration file
+# Prepare a Configuration file (config.yaml) as described below:
+
 A config.yaml file has been included in the ProkAssembly directory. It has the following format :
 ```batch
 #Provide the path of your working directory. Example path is given below.
@@ -82,7 +81,11 @@ busco_lineage: "Preferred busco dataset"
 ```
 # Test dataset
 A test dataset containing a pair of ONT and Illumina sequencing data  is available in the repository https://doi.org/10.5281/zenodo.14869645. 
-
+## Run the workflow
+```
+# Run workflow
+snakemake --snakefile Master_pipeline --core 40
+```
 
 # Included Programs
 **'Nocon assembly'** pipeline for pure reads (contamination ≤1%)
