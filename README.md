@@ -34,9 +34,6 @@ cat sample1.fastq sample2.fastq ... > merged_sample.fastq
 cat sample1_R1.fastq sample2_R1.fastq ... > merged_sample_R1.fastq
 cat sample1_R2.fastq sample2_R2.fastq ... > merged_sample_R2.fastq
 
-# Locate "polypolish_insert_filter.py" and "polypolish" path in the installed polypolish folder to provide in the config file:
-Example: find [/home/XXX/polypolish] -name "polypolish_insert_filter.py" -o -name "polypolish"
-find [COMPLETE_PATH_TO_THE_FOLDER] -name "polypolish_insert_filter.py" -o -name "polypolish"
 
 #Prepare a configuration (config.yaml) file as given.
 
@@ -64,14 +61,6 @@ filtered_long_reads: "/[COMPLETE_PATH_TO_THE_FILE]"
 filtered_short_reads:
 R1: "/[COMPLETE_PATH]"
 R2: "/[COMPLETE_PATH]"
-
-#Provide the path of the "polypolish_insert_filter.py" for filter alignments. Example path is given below.
-#Example path: "/home/[PATH]/polypolish_insert_filter.py"
-Polypolish_filter_script: "/[COMPLETE_PATH_TO_THE_FILE]"
-
-#Provide the path of the "polypolish" executable file. Example path is given below.
-#Example path: "/home/[PATH]/polypolish/"
-PolyPolish_main: "[COMPLETE_PATH_TO_THE_FILE]"
 
 
 #Mention number of threads to use
