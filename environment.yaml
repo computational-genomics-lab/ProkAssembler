@@ -4,12 +4,12 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3
-  - snakemake=8.29.0
+  - python=3.8
+  - snakemake=7.32.4
   - flye=2.9.2
   - metabat2=2.12.1
-  - medaka=1.7.3
-  - polypolish=3
+  - medaka=1.6.0
   - spades=3.13.1
   - checkm-genome=1.2.2
   - busco=5.4.6
+
