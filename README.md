@@ -24,6 +24,9 @@ To run the pipeline the following Software/package/tool are the pre-requisites:
 ```batch
 git clone https://github.com/computational-genomics-lab/ProkAssembly.git
 cd ProkAssembly
+conda env create -f environment.yaml
+conda activate prok-pipeline-env
+
 
 # Prepare Long reads, one file per sample. 
 #If multiple samples:
