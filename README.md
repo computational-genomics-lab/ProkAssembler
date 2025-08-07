@@ -1,5 +1,5 @@
 # Genome-assembly-Pipelines
-ProkAssembly
+ProkAssembler
 Snakemake pipeline for improved microbial genome assembly
 
 # Requirements
@@ -22,8 +22,8 @@ To run the pipeline the following Software/package/tool are the pre-requisites:
 # Quick Start
 
 ```batch
-git clone https://github.com/computational-genomics-lab/ProkAssembly.git
-cd ProkAssembly
+git clone https://github.com/computational-genomics-lab/ProkAssembler.git
+cd ProkAssembler
 conda env create -f environment.yaml
 conda activate prok-pipeline-env
 
