@@ -7,13 +7,7 @@ To run the pipeline the following Software/package/tool are the pre-requisites:
 
 - Python 3
 - Snakemake 8.29.0
-- Flye v.2.9.2
-- Metabat v.2.12.1
-- Medaka v.1.7.3
 - Polypolish v.3
-- Spades v3.13.1
-- CheckM v.1.2.2
-- Busco v.5.4.6
 
   NOTE: Make sure polypolish and polypolish_insert_filter.py is installed and is in your $PATH variable
   Follow https://github.com/rrwick/Polypolish/wiki/Installation for installation of polypolish
