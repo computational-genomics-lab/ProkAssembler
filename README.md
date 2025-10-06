@@ -22,8 +22,9 @@ git clone https://github.com/computational-genomics-lab/ProkAssembler.git
 cd ProkAssembler
 
 # If you do not have Conda installed, install Miniconda first then Verify installation:
-
 conda --version
+
+# Create and activate the environment
 conda env create -f environment.yaml
 conda activate prok-pipeline-env
 
