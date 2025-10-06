@@ -17,9 +17,12 @@ To run the pipeline the following Software/package/tool are the pre-requisites:
 
 ```batch
 # Clone the repository
+
 git clone https://github.com/computational-genomics-lab/ProkAssembler.git
 cd ProkAssembler
+
 # If you do not have Conda installed, install Miniconda first then Verify installation:
+
 conda --version
 conda env create -f environment.yaml
 conda activate prok-pipeline-env
