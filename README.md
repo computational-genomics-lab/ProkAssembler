@@ -5,6 +5,7 @@ Snakemake pipeline for improved microbial genome assembly
 # Requirements
 To run the pipeline the following Software/package/tool are the pre-requisites:
 - Polypolish v.3
+- Ubuntu 22.04 LTS
 
   NOTE: Make sure polypolish and polypolish_insert_filter.py is installed and is in your $PATH variable
   Follow https://github.com/rrwick/Polypolish/wiki/Installation for installation of polypolish
