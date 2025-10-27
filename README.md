@@ -23,10 +23,16 @@ cd ProkAssembler
 wget https://repo.anaconda.com/archive/Anaconda3-latest-Linux-x86_64.sh
 bash Anaconda3-latest-Linux-x86_64.sh
 source ~/.bashrc
-conda --version
 
-# Create and activate the environment
-conda env create -f environment.yaml
+Install Mamba:
+conda install -n base -c conda-forge mamba --yes
+conda --version
+mamba --version
+
+# Run the script to create the environment:
+./create_prok_env.sh
+
+# Activate the environment
 conda activate prok-pipeline-env
 
 
