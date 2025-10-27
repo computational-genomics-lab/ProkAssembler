@@ -3,6 +3,7 @@ channels:
   - bioconda
   - conda-forge
   - defaults
+channel_priority: strict
 dependencies:
   - python=3.8
   - snakemake=7.32.4
@@ -18,5 +19,3 @@ dependencies:
   - numpy
   - pandas
   - matplotlib
-
-
