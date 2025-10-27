@@ -19,7 +19,7 @@ To run the pipeline the following Software/package/tool are the pre-requisites:
 git clone https://github.com/computational-genomics-lab/ProkAssembler.git
 cd ProkAssembler
 
-# If you do not have Conda installed, install Miniconda first using the following commands:
+# If you do not have Conda and mamba installed, install Miniconda first using the following commands:
 wget https://repo.anaconda.com/archive/Anaconda3-latest-Linux-x86_64.sh
 bash Anaconda3-latest-Linux-x86_64.sh
 source ~/.bashrc
@@ -34,7 +34,6 @@ mamba --version
 
 # Activate the environment
 conda activate prok-pipeline-env
-
 
 # Prepare Long reads, one file per sample. 
 #If multiple samples:
